@@ -18,7 +18,7 @@
     ```
 	  然后执行`source /etc/bash.bashrc`  
     
-## nvidia驱动
+## Nvidia驱动
 [ubuntu16.04教程](https://www.cnblogs.com/xinyf/p/5960480.html)
 
 ## CUDA
@@ -82,6 +82,9 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
         --   simulation: Disabled by default.
     * make -j4
     * sudo make install
+
+## realsense
+[教程](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)  
 
 ## open3d
 1. [教程](http://www.open3d.org/docs/compilation.html#ubuntu)  
