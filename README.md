@@ -8,8 +8,8 @@
     * [ippicv face_landmark_model.dat download](https://blog.csdn.net/CSDN330/article/details/86747867)  
 2. step2: opencv文件夹下新建build文件夹，执行下面命令  
     * 编译OpenCV时若要安装viz模块，需要安装libvtk5-dev而且cmake时加上-DWITH_VTK=ON 
-	* FOR EXAMPLE: `cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local/opencv4 -DOPENCV_GENERATE_PKGCONFIG=ON -D WITH_VTK=ON -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.0.0/modules  -D OPENCV_ENABLE_NONFREE=ON ..`    
-3. step3: `make && make install`  
+    * FOR EXAMPLE: `cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local/opencv4 -DOPENCV_GENERATE_PKGCONFIG=ON -D WITH_VTK=ON -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.0.0/modules  -D OPENCV_ENABLE_NONFREE=ON ..`    
+3. step3: `make -j8 && make install`  
 4. step4(optional): `sudo gedit /etc/ld.so.conf.d/opencv.conf`，末尾添加/usr/local/opencv4/lib，然后`sudo ldconfig`  
 5. step5(optional): `sudo gedit /etc/bash.bashrc`，末尾添加      
     ```bash
@@ -52,8 +52,8 @@
     sudo apt-get install qt5-default
 3. 安装VTK（至少6.2版本）  
 [VTK下载](https://vtk.org/download/)  
-yilai opengl
-下载完成后mkdir build; cd build; cmake .. ;sudo make && sudo make install
+依赖opengl（sudo apt-get install freeglut3-dev）   
+下载完成后mkdir build; cd build; cmake .. ; sudo make && sudo make install
 4. 安装PCL
     * mkdir build  
     * cd build  
