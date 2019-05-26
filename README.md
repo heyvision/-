@@ -21,8 +21,8 @@
 ## nvidia驱动
 [ubuntu16.04教程](https://www.cnblogs.com/xinyf/p/5960480.html)
 
-## cuda
-1. [下载](https://developer.nvidia.com/cuda-downloads)
+## CUDA
+1. [CUDA下载](https://developer.nvidia.com/cuda-downloads)
 2. `sudo sh cuda_8.0.61_375.26_linux.run`  
     除了不安装驱动，其他选yes（或者x）
 3. sudo gedit ~/.bashrc (sudo gedit ~/.zshrc)添加下面两行
@@ -32,6 +32,13 @@
      ```
     完成后source ~/.bashrc (source ~/.zshrc)
     
+## cudnn
+1. [cudnn下载](https://developer.nvidia.com/rdp/cudnn-archive)  
+注意与cuda版本匹配  
+2. sudo dpkg -i libcudnn7_7.5.0.56-1+cuda10.1_amd64.deb  
+sudo dpkg -i libcudnn7-dev_7.5.0.56-1+cuda10.1_amd64.deb  
+sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb  
+
 ## PCL
 1. [源码下载](https://github.com/PointCloudLibrary/pcl)并解压
 2.  sudo apt-get update  
