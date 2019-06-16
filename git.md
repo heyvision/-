@@ -8,20 +8,20 @@
 
 ## 2. 提交修改
 首先将项目下载到本地（私有库在Settings->Repositories中）：`git clone git@github.com:Usr_name/Repo.git`  
-*    方法一：直接修改当前分支（小改动）
-    1. 完成修改后将改动的文件上传到暂存区：如`git add README.md`或上传全部`git add .`  
+*    方法一：直接修改当前分支（小改动）  
+    1. 完成修改后将改动的文件上传到暂存区：如`git add README.md`或上传全部`git add .`   
     2. 将暂存区里的改动给提交到本地的版本库：`git commit -m "message"`  
-    3. 取回远程分支branch_name的更新，再与当前的分支合并：`git pull origin branch_name`。如果出现冲突错误：”Automatic merge failed; fix conflicts and then commit the result.”需要手动修改出现冲突的文件，然后回到第一步。(直接运行`git pull`会抓取合并当前分支跟踪的远程分支)
+    3. 取回远程分支branch_name的更新，再与当前的分支合并：`git pull origin branch_name`。如果出现冲突错误：”Automatic merge failed; fix conflicts and then commit the result.”需要手动修改出现冲突的文件，然后回到第一步。(直接运行`git pull`会抓取合并当前分支跟踪的远程分支)  
     4. 上传到远程分支branch_name：`git push origin branch_name`  
 ----  
-*    方法二：新建分支，修改完成后进行合并（较大改动）
+*    方法二：新建分支，修改完成后进行合并（较大改动）  
 	1. 创建新的分支并切换到新的分支：  
 	`git checkout -b new_branch`（或`git checkout -b new_branch origin/branch_name`来设置跟踪分支）  
-	2. 修改操作后执行add & commit，然后进行测试实验
+	2. 修改操作后执行add & commit，然后进行测试实验  
 	3. 回到主要的分支然后合并测试成功的新分支：  
 	`git checkout master`  
 	`git merge new_branch`  
-    4. 删除掉新建的分支：`git branch -d new_branch`
+	4. 删除掉新建的分支：`git branch -d new_branch`
 
 ## 3. 常用命令
 1. 查看本地和远程的所有分支：`git branch -a`  
