@@ -57,6 +57,8 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
     sudo apt-get install libopenni-dev   
     sudo apt-get install libopenni2-dev  
     sudo apt-get install qt5-default
+    (Or install for once. Run as follows:  
+    ./[pcl-dep-install.sh](./pcl-dep-install.sh))
 3. 安装VTK（至少6.2版本）  
 [VTK下载](https://vtk.org/download/)  
 依赖opengl（sudo apt-get install freeglut3-dev）   
