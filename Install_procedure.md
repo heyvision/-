@@ -5,10 +5,11 @@
     * `sudo apt-get install build-essential`  
     * `sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev`  
     * `sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev`  
-    * [ippicv face_landmark_model.dat download](https://blog.csdn.net/CSDN330/article/details/86747867)  
+    * [ippicv和face_landmark_model.dat下载](https://blog.csdn.net/CSDN330/article/details/86747867)（如果cmake时过慢）  
 2. step2: opencv文件夹下新建build文件夹，执行下面命令  
     * 编译OpenCV时若要安装viz模块，需要安装libvtk5-dev而且cmake时加上-DWITH_VTK=ON 
     * FOR EXAMPLE: `cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local/opencv4 -DOPENCV_GENERATE_PKGCONFIG=ON -D WITH_VTK=ON -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.0.0/modules  -D OPENCV_ENABLE_NONFREE=ON ..`    
+    （CMAKE_INSTALL_PREFIX是安装路径，不选为默认/usr/local）
 3. step3: `make -j8 && make install`  
 4. step4(optional): `sudo gedit /etc/ld.so.conf.d/opencv.conf`，末尾添加/usr/local/opencv4/lib，然后`sudo ldconfig`  
 5. step5(optional): `sudo gedit /etc/bash.bashrc`，末尾添加      
@@ -66,7 +67,7 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
     * mkdir build  
     * cd build  
     * 编译
-        * cmake-gui  勾选BUILD_GPU BUILD_CUDA BUILD_apps BUILD_examples BUILD_surface然后configure,将新出现的红色勾选后再configure，最后generate  
+        * 用图像化界面cmake-gui  勾选BUILD_GPU BUILD_CUDA BUILD_apps BUILD_examples BUILD_surface然后configure,将新出现的红色勾选后再configure，最后generate  
         * 或者cmake -DCMAKE_BUILD_TYPE=None  -DBUILD_GPU=ON  -DBUILD_apps=ON  -DBUILD_examples=ON -DBUILD_surface=ON -DBUILD_CUDA=ON ..  
         运行时会提示：  
         -- The following subsystems will not be built:  
@@ -82,18 +83,18 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
         --   global_tests: No reason  
         --   simulation: Disabled by default.
     * make -j4  
-    （如果出现`undefined reference to boost::filesystem::path_traits::dispatch(boost::filesystem::directory_entry const&, std::string&)`的错误，是boost版本过低的问题，下载[更高版本的boost库](https://www.boost.org/users/history/version_1_69_0.html)）
+    （如果出现`undefined reference to boost::filesystem::path_traits::dispatch(boost::filesystem::directory_entry const&, std::string&)`的错误，是boost版本过低的问题，下载[更高版本的boost库](https://www.boost.org/users/history/version_1_69_0.html)，选择模块atomic,chrono,date_time,filesystem,mpi,python,system,thread应该可行）
     * sudo make install
 
 ## realsense
 [教程](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md)  
 
 ## open3d
-1. [教程](http://www.open3d.org/docs/compilation.html#ubuntu)  
+1. [open3d官网教程](http://www.open3d.org/docs/compilation.html#ubuntu)  
     * 使用pip install时报错TypeError: unsupported operand type(s) for -=: 'Retry' and 'int'的解决办法:  
 `sudo python -m pip install --upgrade --force pip`  
     * [pip升级后Import Error:cannot import name main](https://blog.csdn.net/zong596568821xp/article/details/80410416)  
-    `sudo gedit /usr/bin/pip` 修改`from pip._internal import main`
-2. cmake时  
-    * download [3rdparty](https://github.com/intel-isl/Open3D-3rdparty/tree/adac428ffa79f9e0e0a17878b5b246295d53dbb3) to 3rdparty file and [pybind](https://github.com/pybind/pybind11) to 3rdparty/pybind11
+    `sudo gedit /usr/bin/pip` 修改`from pip._internal import main`  
+2. 下载[3rdparty](https://github.com/intel-isl/Open3D-3rdparty/tree/adac428ffa79f9e0e0a17878b5b246295d53dbb3)到3rdparty文件夹里，然后下载[pybind](https://github.com/pybind/pybind11)到3rdparty/pybind11文件夹里  
+3. cmake时  
     * ```sudo cmake -DBUILD_GLFW=ON -DPYTHON_EXECUTABLE=`which python` ..```
