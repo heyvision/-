@@ -56,10 +56,9 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
     sudo apt-get install qt-sdk openjdk-8-jdk openjdk-8-jre  
     sudo apt-get install libopenni-dev   
     sudo apt-get install libopenni2-dev  
-    sudo apt-get install qt5-default
-    (Or install for once. Run as follows:  
-    ./[pcl-dep-install.sh](./pcl-dep-install.sh))
-3. 安装VTK（至少6.2版本）  
+    sudo apt-get install qt5-default  
+    (或者下载[pcl-dep-install.sh](./pcl-dep-install.sh)然后一次性安装:  `./pcl-dep-install.sh`)
+3. 安装VTK（pcl1.8.1以上安装vtk7.1版本，pcl1.7安装vtk6.2版本）  
 [VTK下载](https://vtk.org/download/)  
 依赖opengl（sudo apt-get install freeglut3-dev）   
 下载完成后mkdir build; cd build; cmake .. ; sudo make && sudo make install
@@ -82,7 +81,8 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
         --   gpu_people: Disabled by default.  
         --   global_tests: No reason  
         --   simulation: Disabled by default.
-    * make -j4
+    * make -j4  
+    （如果出现`undefined reference to boost::filesystem::path_traits::dispatch(boost::filesystem::directory_entry const&, std::string&)`的错误，是boost版本过低的问题，下载[更高版本的boost库](https://www.boost.org/users/history/version_1_69_0.html)）
     * sudo make install
 
 ## realsense
