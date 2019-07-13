@@ -66,8 +66,9 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
 4. 安装PCL
     * mkdir build  
     * cd build  
-    * 编译
-        * 用图像化界面cmake-gui  勾选BUILD_GPU BUILD_CUDA BUILD_apps BUILD_examples BUILD_surface然后configure,将新出现的红色勾选后再configure，最后generate  
+    * 编译（根据是否要用到gpu,cuda等选择编译选项）
+        * 用图像化界面，终端输入cmake-gui  
+	勾选BUILD_GPU BUILD_CUDA BUILD_apps BUILD_examples BUILD_surface然后configure,将新出现的红色勾选后再configure，最后generate  
         * 或者cmake -DCMAKE_BUILD_TYPE=None  -DBUILD_GPU=ON  -DBUILD_apps=ON  -DBUILD_examples=ON -DBUILD_surface=ON -DBUILD_CUDA=ON ..  
         运行时会提示：  
         -- The following subsystems will not be built:  
@@ -83,7 +84,7 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
         --   global_tests: No reason  
         --   simulation: Disabled by default.
     * make -j4  
-    （如果出现`undefined reference to boost::filesystem::path_traits::dispatch(boost::filesystem::directory_entry const&, std::string&)`的错误，是boost版本过低的问题，下载[更高版本的boost库](https://www.boost.org/users/history/version_1_69_0.html)，选择模块atomic,chrono,date_time,filesystem,mpi,python,system,thread应该可行）
+    （如果出现`undefined reference to boost::filesystem::path_traits::dispatch(boost::filesystem::directory_entry const&, std::string&)`的错误，下载[更高版本的boost库](https://www.boost.org/users/history/version_1_69_0.html)，然后[安装](https://blog.csdn.net/lvyibin890/article/details/80888554)）
     * sudo make install
 
 ## realsense
@@ -95,6 +96,6 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
 `sudo python -m pip install --upgrade --force pip`  
     * [pip升级后Import Error:cannot import name main](https://blog.csdn.net/zong596568821xp/article/details/80410416)  
     `sudo gedit /usr/bin/pip` 修改`from pip._internal import main`  
-2. 下载[3rdparty](https://github.com/intel-isl/Open3D-3rdparty/tree/adac428ffa79f9e0e0a17878b5b246295d53dbb3)到3rdparty文件夹里，然后下载[pybind](https://github.com/pybind/pybind11)到3rdparty/pybind11文件夹里  
+2. [下载3rdparty](https://github.com/intel-isl/Open3D-3rdparty/tree/adac428ffa79f9e0e0a17878b5b246295d53dbb3)到3rdparty文件夹里，然后[下载pybind](https://github.com/pybind/pybind11)到3rdparty/pybind11文件夹里  
 3. cmake时  
     * ```sudo cmake -DBUILD_GLFW=ON -DPYTHON_EXECUTABLE=`which python` ..```
