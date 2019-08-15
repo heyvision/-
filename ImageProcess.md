@@ -16,8 +16,8 @@
 3. 边缘提取   
 ![边缘检测算子分类](./pictures/bianyuantiqu.jpeg "分类")  
    - Roberts交叉算子：2x2的模板，采用的是对角方向相邻的两个像素之差
-   - Sobel算子
-  ![sobel](./pictures/sobel.png)
+   - Sobel算子  
+     <img src="./pictures/sobel.png" width = "50%" height = "50%"  />
    - Canny算子，分为5个步骤：  
 （1)  使用高斯滤波器，以平滑图像，滤除噪声。   
 （2) 用sobel算子计算图像中每个像素点的梯度强度和方向。   
@@ -64,11 +64,11 @@
    - 应用：Haar + Adaboost人脸分类
 ***
 ***
-**目标跟踪**  
- 1. **MeanShift**  
+**目标跟踪**   
+1. **MeanShift**  
 在d维空间中，任选一个点，然后以这个点为圆心，h为半径做一个高维球。落在这个球内的所有点和圆心都会产生一个向量，向量是以圆心为起点落在球内的点位终点。然后把这些向量都相加。  
  <img src="./pictures/meanshift1.png" width = "40%" height = "40%"  /> <img src="./pictures/meanshift.png" width = "45%" height = "45%"  />  
 然后，再以这个MeanShift 向量的终点为圆心，继续上述过程，又可以得到一个MeanShift 向量，不断地重复这样的过程，可以得到一系列连续的MeanShift 向量，这些向量首尾相连，最终可以收敛到概率密度最大得地方（一个点）。  
 搜索特征采用HSV颜色空间中色调H的直方图反向投影。  
- 2. **Camshift (Continuously Adaptive MeanShift) **  
+2. **Camshift (Continuously Adaptive MeanShift)**  
 以视频图像中运动物体的颜色信息作为特征，对输入图像的每一帧分别作 MeanShift 运算，并将上一帧的目标中心和搜索窗口大小(核函数带宽)作为下一帧 MeanShift 算法的中心和搜索窗口大小的初始值，如此迭代下去，就可以实现对目标的跟踪。在跟踪过程中能够依据目标的尺寸调节搜索窗口大小，对有尺寸变化的目标可准确定位。
