@@ -20,7 +20,8 @@
 	  然后执行`source /etc/bash.bashrc`  
     
 ## Nvidia驱动
-[ubuntu16.04教程](https://www.cnblogs.com/xinyf/p/5960480.html)
+[ubuntu16.04教程](https://www.cnblogs.com/xinyf/p/5960480.html)  
+* 如果sudo service lightdm stop或者ctrl+alt+f1后不能进入命令行状态，解决方法<https://blog.csdn.net/u010733679/article/details/52022094?utm_source=blogxgwz1>
 
 ## CUDA
 1. [CUDA下载](https://developer.nvidia.com/cuda-downloads)
