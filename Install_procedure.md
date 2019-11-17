@@ -99,4 +99,5 @@ sudo dpkg -i libcudnn7-doc_7.5.0.56-1+cuda10.1_amd64.deb
     `sudo gedit /usr/bin/pip` 修改`from pip._internal import main`  
 2. [下载3rdparty](https://github.com/intel-isl/Open3D-3rdparty/tree/adac428ffa79f9e0e0a17878b5b246295d53dbb3)到3rdparty文件夹里，然后[下载pybind](https://github.com/pybind/pybind11)到3rdparty/pybind11文件夹里  
 3. cmake时  
-    * ```sudo cmake -DBUILD_GLFW=ON -DPYTHON_EXECUTABLE=`which python` ..```
+    * ```sudo cmake -DBUILD_GLFW=ON -DPYTHON_EXECUTABLE=`which python3` ..```(最好选择python3)
+4. 如果`make install-pip-package`出现`cp35-cp35m-linux_x86_64.whl is not a supported wheel on this platform.`的错误，将该whl后缀改名为cp35-none-any.whl，然后运行`sudo pip3 install *.whl`，完成安装
