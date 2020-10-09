@@ -12,7 +12,7 @@
     1. 完成修改后将改动的文件上传到暂存区：如`git add README.md`或上传全部`git add .`   
     2. 将暂存区里的改动给提交到本地的版本库：`git commit -m "message"`  
     3. 取回远程分支branch_name的更新，再与当前的分支合并：`git pull origin branch_name`。如果出现冲突错误：”Automatic merge failed; fix conflicts and then commit the result.”需要手动修改出现冲突的文件，然后回到第一步。(直接运行`git pull`会抓取合并当前分支跟踪的远程分支)；  
-    或者使用`git pull --rebase`使commit树线性，没有merge信息（推荐）
+    或者使用`git pull --rebase`使commit树线性，没有merge信息（推荐）  
     4. 上传到远程分支branch_name：`git push origin branch_name`  
 ----  
 *    方法二：新建分支，修改完成后进行合并（较大改动）  
